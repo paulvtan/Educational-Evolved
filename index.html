@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Paul (Vanapan) Tanchareon" content="">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="icon" href="images/web-icon.png">
+    <title>Education Evolved</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!--Task modal-->
+
+    <!-- Modal -->
+    <div class="modalCenter">
+        <div id="myModal" class="modal fade" role="dialog">
+            <!--Chat Box-->
+            <div class="chat_window">
+                <div class="top_menu">
+                    <div class="buttons">
+                        <div class="button close" data-dismiss="modal">x</div>
+                    </div>
+                    <div class="title"><i style="color: #0ACD3D;" class="glyphicon glyphicon-one-fine-dot"></i> Bob</div>
+                </div>
+                <ul class="messages"></ul>
+                <div class="bottom_wrapper clearfix">
+                    <div class="message_input_wrapper"><input class="message_input" placeholder="Type your message here..." /></div>
+                    <div class="send_message">
+                        <div class="icon"></div>
+                        <div class="text">Send</div>
+                    </div>
+                </div>
+            </div>
+            <div class="message_template">
+                <li class="message">
+                    <div class="avatar"></div>
+                    <div class="text_wrapper">
+                        <div class="text"></div>
+                    </div>
+                </li>
+            </div>
+            <!--Chat Box End-->
+        </div>
+    </div>
+    <!--end modal-->
+
+    <!--Quiz Modal-->
+    <div class="modalCenter">
+        <div id="quizModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Answer the following questions</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="questionSet">
+                            <h3>1. What is an advantage to exercise?</h3>
+                            <form id="q1">
+                                <input type="radio" name="q1" value="Improve quality of life"> Improve quality of life<br>
+                                <input type="radio" name="q1" value="Decrease chronic disease"> Decrease chronic disease<br>
+                                <input type="radio" name="q1" value="Stress relief"> Stress relief<br>
+                                <input type="radio" name="q1" value="All of the above"> All of the above<br>
+                            </form>
+                            <!--Q2-->
+
+                            <h3>2. Which of the following contain calcium?</h3>
+                            <form id="q2">
+                                <input type="radio" name="q2" value="Figs"> Figs<br>
+                                <input type="radio" name="q2" value="Almonds"> Almonds<br>
+                                <input type="radio" name="q2" value="Soybeans"> Soybeans<br>
+                                <input type="radio" name="q2" value="All of the above"> All of the above<br>
+                            </form>
+                            <!--Q3-->
+                            <h3>3. How much fiber should you aim for every day?</h3>
+                            <form id="q3">
+                                <input type="radio" name="q3" value="5 grams"> 5 grams<br>
+                                <input type="radio" name="q3" value="10 to 15 grams"> 10 to 15 grams<br>
+                                <input type="radio" name="q3" value="21 to 35 grams"> 21 to 35 grams<br>
+                                <input type="radio" name="q3" value="50 grams"> 50 grams<br>
+                            </form>
+                            <!--Q4-->
+                            <h3>4. Which of these burns the most calories?</h3>
+                            <form id="q4">
+                                <input type="radio" name="q4" value="Swimming"> Swimming<br>
+                                <input type="radio" name="q4" value="Circuit weight training"> Circuit weight training<br>
+                                <input type="radio" name="q4" value="Walking"> Walking<br>
+                                <input type="radio" name="q4" value="Tennis"> Tennis (singles)<br>
+                            </form>
+                            <!--Q5-->
+                            <h3>5. Which does not contain fiber?</h3>
+                            <form id="q5">
+                                <input type="radio" name="q5" value="Broccoli"> Broccoli<br>
+                                <input type="radio" name="q5" value="Oatmeal"> Oatmeal<br>
+                                <input type="radio" name="q5" value="Steak"> Steak<br>
+                                <input type="radio" name="q5" value="An apple"> An apple<br>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="checkBtn" type="button" class="btn btn-info" onclick="submit()">Submit</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--End Quiz Modal-->
+
+
+    <!--Nav Bar-->
+    <div class="container">
+
+        <div style="text-align: center">
+            <img width="500px" src="images/banner.png"></img>
+        </div>
+        <div class="row">
+            <section>
+                <div class="wizard">
+                    <div class="wizard-inner">
+                        <div class="connecting-line"></div>
+                        <ul class="nav nav-tabs" role="tablist">
+
+                            <li role="presentation" class="active">
+                                <a href="#Home" data-toggle="tab" role="tab" title="Home" onclick="goToHome()"> 
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-home"></i>
+                            </span>
+                        </a>
+                            </li>
+
+                            <li role="presentation">
+                                <a href="#Resource" data-toggle="tab" role="tab" title="Resource">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-book"></i>
+                            </span>
+                        </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#Quiz" data-toggle="tab" role="tab" title="Quiz" onclick="goToQuiz()">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </span>
+                        </a>
+                            </li>
+
+                            <li role="presentation">
+                                <a href="#Report" data-toggle="tab" role="tab" title="Report">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-list-alt"></i>
+                            </span>
+                        </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <!--Side Bar-->
+                    <div style="float: left;" class="container">
+                        <div class="row profile">
+
+                            <div class="col-md-3">
+                                <div class="profile-sidebar">
+                                    <!-- SIDEBAR USERPIC -->
+                                    <div class="profile-userpic">
+                                        <img src="images/henry.jpg" class="img-responsive" alt="Henry image">
+                                    </div>
+                                    <!-- END SIDEBAR USERPIC -->
+                                    <!-- SIDEBAR USER TITLE -->
+                                    <div class="profile-usertitle">
+                                        <div class="profile-usertitle-name">
+                                            Henry Mcgee
+                                        </div>
+                                        <div class="profile-usertitle-job">
+                                            Student
+                                        </div>
+                                    </div>
+                                    <!-- END SIDEBAR USER TITLE -->
+
+                                    <!-- SIDEBAR MENU -->
+                                    <div class="profile-usermenu">
+                                        <ul class="nav">
+                                            <li class="sidebar">
+                                                <a href="#">
+							<i class="glyphicon glyphicon-ok"></i>
+							Tasks </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+							<i class="glyphicon glyphicon-calendar"></i>
+							Calendar </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+							<i class="glyphicon glyphicon-star"></i>
+							Points </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- END MENU -->
+                                </div>
+                            </div>
+
+                            <!--Project Overview Screen-->
+                            <div id="overviewScreen">
+                                <div class="col-md-7">
+                                    <div class="profile-content">
+                                        <div style="text-align: center" class="page-header">
+                                            <h1>Project Overview<br><small>Physical Education <i class="glyphicon glyphicon-fire"></i></small><br>
+                                            </h1>
+                                            <!--Progress bar-->
+                                            <div class="progress" style="text-align: relative; height: 10px;">
+                                                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                                    aria-valuemax="100" style="width: 60%;">
+                                                </div>
+                                            </div>
+                                            <p class="small">Completion: 60%</p>
+                                            <!--Progress bar end-->
+                                        </div>
+                                        <p><b><i class="glyphicon glyphicon-plus"></i> Topic :</b> The correlation between food
+                                            and athletic performance.</p>
+                                        <br>
+                                        <p><b><i class="glyphicon glyphicon-info-sign"></i> Background</b></p>
+                                        <p>Food has always been one of the most essential element in our life, but how does
+                                            'food' affects athletes?<br> Is there a correlation between athlete's performance,
+                                            and the type of food they eat? </p>
+                                        <br>
+                                        <!--Thumbnails-->
+                                        <div class="row">
+                                            <!--1-->
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="thumbnail">
+                                                    <img src="images/healthyfoods.jpeg" alt="Healthy Food Image">
+                                                    <div class="caption">
+                                                        <h4>Healthy Diet</h4>
+                                                        <p class="small">What exactly is healthy diet? What are the different types of diet?</p>
+                                                        <p><a href="https://www.google.com" target="_blank" class="btn btn-primary"
+                                                                role="button">Read</a> <a href="#" class="btn btn-default" role="button">Dismiss</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--2-->
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="thumbnail">
+                                                    <img src="images/nutrition-for-athletes.jpg" alt="Nutrition Image">
+                                                    <div class="caption">
+                                                        <h4>History of Athletic Diet</h4>
+                                                        <p class="small">Back in 1970, the scientist had begun discovering the optimal diet...</p>
+                                                        <p><a href="https://duckduckgo.com/" target="_blank" class="btn btn-primary"
+                                                                role="button">Read</a> <a href="#" class="btn btn-default" role="button">Dismiss</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--3-->
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="thumbnail">
+                                                    <img src="images/sprint.jpg" alt="Sprinting Image">
+                                                    <div class="caption">
+                                                        <h4>Diet vs. Performance</h4>
+                                                        <p class="small">Read findings about which type of foods increase your performance.</p>
+                                                        <p><a href="https://www.bing.com/" target="_blank" class="btn btn-primary"
+                                                                role="button">Read</a> <a href="#" class="btn btn-default" role="button">Dismiss</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end-->
+                                        <p><b><i class="glyphicon glyphicon-ok-circle"></i> Your task is to:</b> </p>
+                                        <ul>
+                                            <li>Investigate the issue</li>
+                                            <li>Carry out experiment</li>
+                                            <li>Record your findings</li>
+                                            <li>Complete quizzes</li>
+                                            <li>Complete your group report</li>
+                                        </ul>
+                                        <p style="text-align: center"><b>Education Evolved<sup>&trade;</sup></b><br><span style="font-size: 10px; padding-bottom: 0">2017</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Project Overview Ends-->
+
+                            <!--Quiz Screen-->
+                            <div id="quizScreen" style="display: none">
+                                <div class="col-md-7">
+                                    <div class="profile-content">
+                                        <div style="text-align: center" class="page-header">
+                                            <h1>Quiz <br><small>Physical Education <i class="glyphicon glyphicon-fire"></i></small><br>
+                                            </h1>
+                                            <p><b>Instruction: </b> You have 25 minutes to complete questions from the topic.</p>
+                                        </div>
+
+                                        <!--Leader Board-->
+                                        <div class="row">
+
+                                            <div class="panel panel-primary" style="border: 0;">
+                                                <table class="table table-hover" id="dev-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Progress</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="name">Bob</td>
+                                                            <td>
+                                                                <i style="color: gold" class="glyphicon glyphicon-star" aria-hidden="true"></i>                                                                <span id=score class="name"> <b>100 / 100</b> </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="name">Eve</td>
+                                                            <td>
+                                                                <i style="color: gold" class="glyphicon glyphicon-star" aria-hidden="true"></i>                                                                <span id=score class="name"> <b> &nbsp; 98 / 100</b> </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="name">John</td>
+                                                            <td>
+                                                                <i style="color: gold" class="glyphicon glyphicon-star" aria-hidden="true"></i>                                                                <span id=score class="name"> <b> &nbsp; 75 / 100</b> </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="name">Lucy</td>
+                                                            <td>
+                                                                <i style="color: gold" class="glyphicon glyphicon-star" aria-hidden="true"></i>                                                                <span id=score class="name"> <b> &nbsp; 47 / 100</b> </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="name">Henry</td>
+                                                            <td>
+                                                                <i style="color: gold" class="glyphicon glyphicon-star" aria-hidden="true"></i>                                                                <span onclick="getScore()" id=henryScore class="name"> <b> &nbsp; -</b> </span>
+                                                            </td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                            <div style="text-align: center">
+                                                <button id="startQuiz" data-toggle="modal" data-target="#quizModal" onclick="getScore()" type="button" class="btn btn-success btn-lg">Start Quiz</button>
+                                                <button id="reset" style="display: none" onclick="reset()" type="button" class="btn btn-warning btn-lg">Re-attempt Quiz</button>
+                                            </div>
+                                        </div>
+                                        <!--Leader Board End-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Quiz Screen End-->
+
+                            <!--Chat Side Bar-->
+                            <div class="col-md-2">
+                                <div class="profile-sidebar">
+                                    <!-- SIDEBAR USERPIC -->
+                                    <div style="text-align: center">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="profile-userpic">
+
+                                                        <button type="button" class="btn btn-default btn-circle btn-lg" aria-label="Left Align">
+                                                <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                                            </button>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="profile-userpic">
+
+                                                        <button type="button" class="btn btn-default btn-circle btn-lg" aria-label="Left Align">
+                                                <span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>
+                                            </button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END SIDEBAR USERPIC -->
+                                    <!-- SIDEBAR USER TITLE -->
+                                    <div class="profile-usertitle">
+                                        <div class="profile-usertitle-job" style="color: #0E95B3">
+                                            Voice Channel
+                                        </div>
+                                    </div>
+                                    <!-- END SIDEBAR USER TITLE -->
+
+                                    <!-- SIDEBAR MENU -->
+                                    <div class="profile-usermenu">
+                                        <ul class="nav">
+                                            <li class="sidebar" data-toggle="modal" data-target="#myModal">
+                                                <a href="#">
+							<i style="color: #0ACD3D;" class="glyphicon glyphicon-one-fine-dot"></i>
+							Bob </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+							<i style="color: red;" class="glyphicon glyphicon-one-fine-dot"></i>
+							Lucy </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+							<i style="color: red;" class="glyphicon glyphicon-one-fine-dot"></i>
+							Eve </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+							<i style="color: red;" class="glyphicon glyphicon-one-fine-dot"></i>
+							John </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- END MENU -->
+                                </div>
+                            </div>
+                            <!--End Chat Side Bar-->
+
+                        </div>
+                    </div>
+                    <!--Side Bar End-->
+                </div>
+
+            </section>
+
+        </div>
+
+        <!--Nav Bar End-->
+    </div>
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!--Custom JS-->
+    <script src="js/custom.js"></script>
+
+</body>
+
+</html>
